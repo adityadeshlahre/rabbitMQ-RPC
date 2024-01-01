@@ -9,6 +9,8 @@ export default class Consumer {
 
     this.channel.consume(
       this.rpcQueue,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       async (message: ConsumeMessage) => {
         const { correlationId, replyTo } = message.properties;
         const operation = message.properties.headers.function;

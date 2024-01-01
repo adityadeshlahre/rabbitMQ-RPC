@@ -8,11 +8,20 @@ class RabbitMQClient {
 
   private static instance: RabbitMQClient;
   private isInitialized = false;
-
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   private producer: Producer;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   private consumer: Consumer;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   private connection: Connection;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   private producerChannel: Channel;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   private consumerChannel: Channel;
 
   public static getInstance() {

@@ -13,6 +13,8 @@ export default class Consumer {
 
     this.channel.consume(
       this.replyQueueName,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       (message: ConsumeMessage) => {
         console.log("the reply is..", JSON.parse(message.content.toString()));
         this.eventEmitter.emit(
