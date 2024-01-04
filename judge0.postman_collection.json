@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "33fd2621-d88b-4dd8-929a-0f495756008e",
+		"name": "judge0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28045958"
+	},
+	"item": [
+		{
+			"name": "judge0",
+			"item": [
+				{
+					"name": "getAllLanguages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2358/languages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2358",
+							"path": [
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSpecificLanguage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{JUDGEURL}}languages/71",
+							"host": [
+								"{{JUDGEURL}}languages"
+							],
+							"path": [
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "codeResultGet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{JUDGEURL}}submissions/83feb73d-61a7-483a-8e17-b57e12c6cc8a",
+							"host": [
+								"{{JUDGEURL}}submissions"
+							],
+							"path": [
+								"83feb73d-61a7-483a-8e17-b57e12c6cc8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "codeSubmit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source_code\": \"print(\\\"Hello, World!\\\")\",\n    \"language_id\": 71\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{JUDGEURL}}submissions/",
+							"host": [
+								"{{JUDGEURL}}submissions"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
