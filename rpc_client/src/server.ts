@@ -10,7 +10,13 @@ server.post("/operate", async (req, res, next) => {
   res.send({ response });
 });
 
-server.listen(3001, async () => {
+server.get("/token/:token", async (req, res, next) => {
+  console.log(req.body);
+  const response = await RabbitMQClient.produce(req.body);
+  res.send({ response });
+});
+
+server.listen(3000, async () => {
   console.log("Server running...");
   RabbitMQClient.initialize();
 });

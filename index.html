@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judge0 API Actions</title>
+  </head>
+  <body>
+    <!-- Authentication Section -->
+    <section>
+      <h2>Authentication</h2>
+      <form id="authenticateForm">
+        <label for="authToken">Authentication Token:</label>
+        <input type="text" id="authToken" name="authToken" required />
+        <button type="button" onclick="authenticate()">Authenticate</button>
+      </form>
+      <div id="authResult"></div>
+    </section>
+
+    <!-- Authorization Section -->
+    <section>
+      <h2>Authorization</h2>
+      <form id="authorizeForm">
+        <label for="authUser">Authorization Token:</label>
+        <input type="text" id="authUser" name="authUser" required />
+        <button type="button" onclick="authorize()">Authorize</button>
+      </form>
+      <div id="authorizeResult"></div>
+    </section>
+
+    <!-- Submissions Section -->
+    <section>
+      <h2>Submissions</h2>
+
+      <form id="submissionForm" onsubmit="submitForm(event)">
+        <label for="sourceCode">Source Code:</label>
+        <textarea id="sourceCode" rows="10" required></textarea><br />
+
+        <label for="languageId">Language ID:</label>
+        <input type="number" id="languageId" required /><br />
+
+        <!-- Add more form fields based on your requirements -->
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Get Submissions -->
+    <section>
+      <h2>Get Submissions</h2>
+
+      <form id="submissionForm" onsubmit="getSubmissions(event)">
+        <label for="token">Token :</label>
+        <input type="text" id="token" required /><br />
+
+        <!-- Add more form fields based on your requirements -->
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Delete Submissions -->
+    <section>
+      <h2>Delete Submissions</h2>
+
+      <form id="submissionForm" onsubmit="deleteSubmissions(event)">
+        <label for="token">Token :</label>
+        <input type="text" id="token" required /><br />
+
+        <!-- Add more form fields based on your requirements -->
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Batch Submissions -->
+    <section>
+      <h2>Batch Submissions</h2>
+
+      <form id="submissionForm" onsubmit="submitBatchForm(event)">
+        <label for="sourceCode">Source Code0:</label>
+        <textarea id="sourceCode" rows="10" required></textarea><br />
+
+        <label for="languageId">Language ID0:</label>
+        <input type="number" id="languageId" required /><br />
+
+        <label for="sourceCode">Source Code1:</label>
+        <textarea id="sourceCode" rows="10" required></textarea><br />
+
+        <label for="languageId">Language ID1:</label>
+        <input type="number" id="languageId" required /><br />
+
+        <label for="sourceCode">Source Code2:</label>
+        <textarea id="sourceCode" rows="10" required></textarea><br />
+
+        <label for="languageId">Language ID2:</label>
+        <input type="number" id="languageId" required /><br />
+
+        <!-- Add more form fields based on your requirements -->
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Get Batch Submissions -->
+    <section>
+      <h2>Get Batch Submissions</h2>
+
+      <form id="submissionForm" onsubmit="getBatchSubmissions(event)">
+        <label for="token">Token 0:</label>
+        <input type="text" id="token" required /><br />
+        <label for="token">Token 1:</label>
+        <input type="text" id="token" required /><br />
+        <label for="token">Token 2:</label>
+        <input type="text" id="token" required /><br />
+
+        <!-- Add more form fields based on your requirements -->
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Languages Section -->
+    <section>
+      <h2>Languages</h2>
+      <button type="button" onclick="getLanguages()">Get Languages</button>
+      <div id="languagesResult"></div>
+    </section>
+    <!-- Status Section -->
+    <section>
+      <h2>Status</h2>
+      <button type="button" onclick="getStatus()">Get Languages</button>
+      <div id="languagesResult"></div>
+    </section>
+
+    <!-- System Info Section -->
+    <section>
+      <h2>System Info</h2>
+      <button type="button" onclick="getSystemInfo()">Get System Info</button>
+      <div id="systemInfoResult"></div>
+    </section>
+
+    <!-- Configuration Info Section -->
+    <section>
+      <h2>Configuration Info</h2>
+      <button type="button" onclick="getConfigInfo()">
+        Get Configuration Info
+      </button>
+      <div id="configInfoResult"></div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section>
+      <h2>Statistics</h2>
+      <button type="button" onclick="getStatistics()">Get Statistics</button>
+      <div id="statisticsResult"></div>
+    </section>
+
+    <!-- Workers Section -->
+    <section>
+      <h2>Workers</h2>
+      <button type="button" onclick="getWorkers()">Get Workers</button>
+      <div id="workersResult"></div>
+    </section>
+
+    <!-- About Section -->
+    <section>
+      <h2>About</h2>
+      <button type="button" onclick="getAboutInfo()">Get About Info</button>
+      <div id="aboutInfoResult"></div>
+    </section>
+
+    <!-- Version Section -->
+    <section>
+      <h2>Version</h2>
+      <button type="button" onclick="getVersion()">Get Version</button>
+      <div id="versionResult"></div>
+    </section>
+
+    <!-- Isolate Section -->
+    <section>
+      <h2>Isolate Version</h2>
+      <button type="button" onclick="getIsolateVersion()">
+        Get Isolate Version
+      </button>
+      <div id="isolateVersionResult"></div>
+    </section>
+
+    <!-- License Section -->
+    <section>
+      <h2>License</h2>
+      <button type="button" onclick="getLicense()">Get License</button>
+      <div id="licenseResult"></div>
+    </section>
+    <!-- needtochange -->
+    <script src="index.ts"></script>
+  </body>
+</html>
