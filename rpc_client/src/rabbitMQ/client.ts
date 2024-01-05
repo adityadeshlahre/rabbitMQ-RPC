@@ -48,7 +48,7 @@ class RabbitMQClient {
       const { queue: replyQueueName } = await this.consumerChannel.assertQueue(
         "",
         { exclusive: true }
-      );
+      ); //q.queue is the propey which is going to take default names
 
       this.eventEmitter = new EventEmitter();
       this.producer = new Producer(

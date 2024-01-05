@@ -1,5 +1,6 @@
 import { Channel, ConsumeMessage } from "amqplib";
 import MessageHandler from "../messegesHandler";
+import Producer from "./producer";
 
 export default class Consumer {
   constructor(private channel: Channel, private rpcQueue: string) {}
@@ -16,14 +17,15 @@ export default class Consumer {
         const operation = message.properties.headers.function;
         if (!correlationId || !replyTo) {
           console.log("Missing some properties...");
+        } else {
+          console.log("Consumed", JSON.parse(message.content.toString()));
+          await MessageHandler.handle(
+            operation,
+            JSON.parse(message.content.toString()),
+            correlationId,
+            replyTo
+          );
         }
-        console.log("Consumed", JSON.parse(message.content.toString()));
-        await MessageHandler.handle(
-          operation,
-          JSON.parse(message.content.toString()),
-          correlationId,
-          replyTo
-        );
       },
       {
         noAck: true,

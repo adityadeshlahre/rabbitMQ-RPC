@@ -29,7 +29,11 @@ export default class Producer {
     return new Promise((resolve, reject) => {
       this.eventEmitter.once(uuid, async (data) => {
         const reply = JSON.parse(data.content.toString());
-        resolve(reply);
+        if (reply && reply.data) {
+          resolve(reply);
+        } else {
+          reject("Invalid or empty reply data");
+        }
       });
     });
   }

@@ -12,3 +12,4 @@ Reply Queue, to which the RPC_Client will be consuming responses from.
 - [ ] html only frontend to interect with code judge0
 - [ ] functions mapping
 - [ ] writing functions
+- [ ] write code running logic on judge0
