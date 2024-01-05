@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import axios from "axios";
 const app = express();
 const port = 3000;
 
@@ -26,8 +27,12 @@ app.post("/submit", (req: Request, res: Response) => {
 });
 
 // Get Submissions route
-app.get("/getsubmissions", (req: Request, res: Response) => {
-    
+app.get("/getsubmissions", (req: Request, res: Response): any => {
+  const token: string = req.body.token;
+  console.log(token);
+  const result = axios.get(`http://localhost:2358/submissions/+${token}`);
+  console.log(result);
+  return result;
 });
 
 // Delete Submissions route
