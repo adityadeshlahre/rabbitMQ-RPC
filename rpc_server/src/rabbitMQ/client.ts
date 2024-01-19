@@ -56,14 +56,20 @@ class RabbitMQClient {
       console.log("rabbitmq error...", error);
     }
   }
-  async produce(data: any, correlationId: string, replyToQueue: string) {
+  async produce(
+    data: any,
+    correlationId: string,
+    replyToQueue: string,
+    reqType: string
+  ) {
     if (!this.isInitialized) {
       await this.initialize();
     }
     return await this.producer.produceMessages(
       data,
       correlationId,
-      replyToQueue
+      replyToQueue,
+      reqType
     );
   }
 }

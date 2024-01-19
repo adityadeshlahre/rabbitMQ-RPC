@@ -69,11 +69,11 @@ class RabbitMQClient {
       console.log("rabbitmq error...", error);
     }
   }
-  async produce(data: any) {
+  async produce(data: any, reqType: string) {
     if (!this.isInitialized) {
       await this.initialize();
     }
-    return await this.producer.produceMessages(data);
+    return await this.producer.produceMessages(data, reqType);
   }
 }
 

@@ -10,7 +10,7 @@ export default class Producer {
     private eventEmitter: EventEmitter
   ) {}
 
-  async produceMessages(data: any) {
+  async produceMessages(data: any, reqType: string) {
     const uuid = randomUUID();
     console.log("the corr id is ", uuid);
     this.channel.sendToQueue(
@@ -22,6 +22,7 @@ export default class Producer {
         expiration: 10,
         headers: {
           function: data.operation,
+          // argument: reqType,
         },
       }
     );

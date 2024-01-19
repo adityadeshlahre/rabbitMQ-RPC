@@ -15,7 +15,8 @@ export default class Consumer {
       async (message: ConsumeMessage) => {
         const { correlationId, replyTo } = message.properties;
         const operation = message.properties.headers.function;
-        if (!correlationId || !replyTo) {
+        const reqType = message.properties.headers.argument;
+        if (!correlationId || !replyTo || !reqType) {
           console.log("Missing some properties...");
         } else {
           console.log("Consumed", JSON.parse(message.content.toString()));
@@ -23,7 +24,8 @@ export default class Consumer {
             operation,
             JSON.parse(message.content.toString()),
             correlationId,
-            replyTo
+            replyTo,
+            reqType
           );
         }
       },
@@ -33,3 +35,5 @@ export default class Consumer {
     );
   }
 }
+
+//implelentTry catch block
